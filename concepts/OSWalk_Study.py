@@ -14,7 +14,7 @@ spath = r"/home/jason/git_hub_repos/Spyder3_Workspace"
 print(os.listdir(spath))
 
 #Examplel of "get everything split"
-#for roots, dirs, files in os.walk(spath):
+
 #   for dir in dirs:
 #        print("Directory = %s:" % dir)
 #   for file in files:
