@@ -9,7 +9,7 @@ __author__ = "Jason Lutz"
 import os
 import hashlib
 
-fotoPath = '/home/jason/git_hub_repos/python_fotos/concepts'
+fotoPath = '/home/jason/git_repos/python_fotos/concepts'
 hasher = hashlib.md5()
 
 for roots, dirs, files in os.walk(fotoPath):
@@ -17,7 +17,8 @@ for roots, dirs, files in os.walk(fotoPath):
         f=open(file, "rb")
         content = f.read()
         hasher.update(content)
-        print(hasher.hexdigest())    
+        print(file + '    ' + hasher.hexdigest())
+        #print(hasher.hexdigest())    
     
     
     
