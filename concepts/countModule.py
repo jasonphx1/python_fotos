@@ -13,7 +13,7 @@ import re
 hasher = hashlib.md5()
 
 
-fotoPath = "/vm_hosts/Sample_Data"
+fotoPath = "."
 
 def countFiles(fotoPath):
     totalCount = 0
@@ -23,6 +23,8 @@ def countFiles(fotoPath):
     docCount = 0
     imgCount = 0
     mp4Count = 0
+    countDict = {}
+    
     for root, dirs, files in os.walk(fotoPath, topdown=False):
         for name in files:
             totalCount += 1
@@ -51,6 +53,18 @@ def countFiles(fotoPath):
     print("Number of doc files: ", docCount, "Percentage: ", percentDOCFile)
     print("Number of img files: ", imgCount, "Percentage: ", percentIMGFile)
     print("Number of mp4 files: ", imgCount, "Percentage: ", percentmp4File)
+    countDict["totalCount"] = totalCount
+    countDict["txtCount"] = txtCount
+    countDict["jpgCount"] = jpgCount
+    countDict["jpegCount"] = jpegCount
+    countDict["docCount"] = docCount
+    countDict["imgCount"] = imgCount
+    countDict["mp4Count"] = mp4Count
+    print(countDict)
+#    for i in countDict:
+#        print(countDict[i])
+    return countDict
+    
 def hashFiles(fotoPath):
     for root, dirs, files in os.walk(fotoPath, topdown=False):
         for name in files:
