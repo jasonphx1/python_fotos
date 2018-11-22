@@ -13,7 +13,7 @@ import re
 hasher = hashlib.md5()
 
 
-fotoPath = "."
+fotoPath = "/home/jason/USB/BackSpace_Labs"
 
 def countFiles(fotoPath):
     totalCount = 0
@@ -60,7 +60,7 @@ def countFiles(fotoPath):
     countDict["docCount"] = docCount
     countDict["imgCount"] = imgCount
     countDict["mp4Count"] = mp4Count
-    print(countDict)
+    #print(countDict)
 #    for i in countDict:
 #        print(countDict[i])
     return countDict
@@ -91,10 +91,13 @@ def makeDictionary(fotoPath):
             hashDictionary[name] = hashValue
     for items in hashDictionary:
         dictCount += 1
-    print("Number of Items in the Dictionary", dictCount)
-    print("Nubmer of Directories", directoryCount)
+    #print("Number of Items in the Dictionary", dictCount)
+    #print("Nubmer of Directories", directoryCount)
+    return hashDictionary
     
-makeDictionary(fotoPath)
-countFiles(fotoPath)
+hashDictionary = makeDictionary(fotoPath)
+countDict = countFiles(fotoPath)
+print(countDict)
+print(hashDictionary)
 #hashFiles(fotoPath)
 
