@@ -9,11 +9,13 @@ Created on Tue Nov 20 19:01:40 2018
 import os
 import hashlib
 import re
+import sys
+#import getopt
 
 hasher = hashlib.md5()
 
 
-fotoPath = "/home/jason/USB/BackSpace_Labs"
+fotoPath = sys.argv[1]
 
 def countFiles(fotoPath):
     totalCount = 0
@@ -27,6 +29,8 @@ def countFiles(fotoPath):
     
     for root, dirs, files in os.walk(fotoPath, topdown=False):
         for name in files:
+            fullName =os.path.join(root, name)
+            getMetaData(fullName)
             totalCount += 1
             if re.search('.txt', name):
                 txtCount += 1
@@ -94,10 +98,19 @@ def makeDictionary(fotoPath):
     #print("Number of Items in the Dictionary", dictCount)
     #print("Nubmer of Directories", directoryCount)
     return hashDictionary
-    
-hashDictionary = makeDictionary(fotoPath)
+
+def getMetaData(fileName):
+    st = os.stat(fileName)
+    print(st)
+
+#def main(argv):
+#   fotoPath = str(sys.argv)
+#    return fotoPath
+
+#fotoPath = sys.argv   
+#hashDictionary = makeDictionary(fotoPath)
 countDict = countFiles(fotoPath)
 print(countDict)
-print(hashDictionary)
+#print(hashDictionary)
 #hashFiles(fotoPath)
 
