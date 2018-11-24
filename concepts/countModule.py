@@ -9,11 +9,13 @@ Created on Tue Nov 20 19:01:40 2018
 import os
 import hashlib
 import re
+import sys
+#import getopt
 
 hasher = hashlib.md5()
 
 
-fotoPath = "/vm_hosts/Sample_Data"
+fotoPath = sys.argv[1]
 
 def countFiles(fotoPath):
     totalCount = 0
@@ -23,8 +25,12 @@ def countFiles(fotoPath):
     docCount = 0
     imgCount = 0
     mp4Count = 0
+    countDict = {}
+    
     for root, dirs, files in os.walk(fotoPath, topdown=False):
         for name in files:
+            fullName =os.path.join(root, name)
+            getMetaData(fullName)
             totalCount += 1
             if re.search('.txt', name):
                 txtCount += 1
@@ -51,6 +57,18 @@ def countFiles(fotoPath):
     print("Number of doc files: ", docCount, "Percentage: ", percentDOCFile)
     print("Number of img files: ", imgCount, "Percentage: ", percentIMGFile)
     print("Number of mp4 files: ", imgCount, "Percentage: ", percentmp4File)
+    countDict["totalCount"] = totalCount
+    countDict["txtCount"] = txtCount
+    countDict["jpgCount"] = jpgCount
+    countDict["jpegCount"] = jpegCount
+    countDict["docCount"] = docCount
+    countDict["imgCount"] = imgCount
+    countDict["mp4Count"] = mp4Count
+    #print(countDict)
+#    for i in countDict:
+#        print(countDict[i])
+    return countDict
+    
 def hashFiles(fotoPath):
     for root, dirs, files in os.walk(fotoPath, topdown=False):
         for name in files:
@@ -77,10 +95,22 @@ def makeDictionary(fotoPath):
             hashDictionary[name] = hashValue
     for items in hashDictionary:
         dictCount += 1
-    print("Number of Items in the Dictionary", dictCount)
-    print("Nubmer of Directories", directoryCount)
-    
-makeDictionary(fotoPath)
-countFiles(fotoPath)
+    #print("Number of Items in the Dictionary", dictCount)
+    #print("Nubmer of Directories", directoryCount)
+    return hashDictionary
+
+def getMetaData(fileName):
+    st = os.stat(fileName)
+    print(st)
+
+#def main(argv):
+#   fotoPath = str(sys.argv)
+#    return fotoPath
+
+#fotoPath = sys.argv   
+#hashDictionary = makeDictionary(fotoPath)
+countDict = countFiles(fotoPath)
+print(countDict)
+#print(hashDictionary)
 #hashFiles(fotoPath)
 
