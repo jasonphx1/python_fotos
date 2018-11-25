@@ -16,6 +16,7 @@ jpgCount = 0
 jpegCount = 0
 docCount = 0
 imgCount = 0
+otherCount = o
 
 for root, dirs, files in os.walk("/vm_hosts/Sample_Data", topdown=False):
     #Prints files
@@ -27,14 +28,15 @@ for root, dirs, files in os.walk("/vm_hosts/Sample_Data", topdown=False):
 #        print(hasher.hexdigest())
         if re.search('.txt', name):
             txtCount += 1
-        if re.search('.jpg', name):
+        elif re.search('.jpg', name):
             jpgCount += 1
-        if re.search('.jpeg', name):
+        elif re.search('.jpeg', name):
             jpegCount += 1
-        if re.search('.doc', name):
+        elif re.search('.doc', name):
             docCount += 1
-        if re.search('.img', name):
+        elif re.search('.img', name):
             imgCount += 1
+        else
 print("Number of text files: ", txtCount)
 print("Number of jpg files: ", jpgCount)
 print("Number of jpeg files: ", jpegCount)

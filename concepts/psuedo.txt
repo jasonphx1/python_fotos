@@ -1,0 +1,17 @@
+PROGRAM PSUEDO:
+-Get arguements from cmd line (source directory) + error handling
+-check directoires exist, check database exists
+-ask user if the defaults are good
+-Show counts and stats. + LOG
+-set a "marker" variable to always know the last completed action + LOG
+-load data in a table DATABASE_OP + LOG
+-create a list of duplicates DATABASE_OPS + LOG
+-create statistics on duplicates + LOG
+-Mark dupes for secondary file move DATABASE_OPS + LOG
+-create file copy operations to local drive (best backup methods) FILE_OPS + LOGS
+-create garabage store(for secondary backup methods) FILE_OPS + LOGS
+-ask about purge + LOG
+-if yes purge files marked as secondary from disk FILE_OPS + LOGS
+-mark dupes as non-existent, with log details + LOG
+
+
