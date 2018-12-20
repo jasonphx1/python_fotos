@@ -9,6 +9,8 @@ import sys
 import sqlite3
 from sqlite3 import Error
 import countModule
+'''Maturity Considerations: bring in modules called in the called modules.'''
+'''Consider using PANDA and pyTest.'''
 
 database = sys.argv[1]
 currentDIR = "."

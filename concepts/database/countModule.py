@@ -104,6 +104,7 @@ def hashFiles(fotoPath):
             print(hasher.hexdigest())
 '''Maturity Considerations: how does this get put into the process of adding entries
 the meta data tables, etc.'''
+'''The function makeDictionary my deprecate this function.'''
 
 def makeDictionary(fotoPath):
     hashDictionary = dict()
@@ -124,11 +125,18 @@ def makeDictionary(fotoPath):
     #print("Number of Items in the Dictionary", dictCount)
     #print("Nubmer of Directories", directoryCount)
     return hashDictionary
+'''Maturity Considerations: how does this get put into the process of adding entries
+the meta data tables, etc.'''
+'''The function makeDictionary my deprecate this function.'''
 
 def getMetaData(fileName):
     st = os.stat(fileName)
     print(st)
+'''Obviously the functionality here needs to be heavily developed.'''
 
+
+
+'''Clean up below'''
 #def main(argv):
 #   fotoPath = str(sys.argv)
 #    return fotoPath
