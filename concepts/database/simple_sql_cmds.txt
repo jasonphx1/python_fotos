@@ -1,0 +1,4 @@
+Command used in SQLite3:
+
+CREATE TABLE fotoMeta (foto_ID INTEGER PRIMARY KEY, hash_value TEXT NOT NULL UNIQUE, file_path TEXT NOT_NULL UNIQUE);
+
