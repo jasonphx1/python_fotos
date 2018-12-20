@@ -8,8 +8,10 @@ Created on Wed Dec 19 18:30:24 2018
 import sys
 import sqlite3
 from sqlite3 import Error
+import countModule
 
 database = sys.argv[1]
+currentDIR = "."
 
 def create_connection(db_file):
     #create connection to database
@@ -30,11 +32,13 @@ def iterateItems_fotoDB(conn):
         print(row)
 
 def main():
-    conn = create_connection(database)
-    with conn:
-        print("Current items in the foto database:")
-        iterateItems_fotoDB
-        
+    #conn = create_connection(database)
+    #with conn:
+    #    print("Current items in the foto database:")
+    #    iterateItems_fotoDB
+    countModule.countFiles(currentDIR)
+    print("Done") 
+
 if __name__ == '__main__':
     main()
 
