@@ -10,12 +10,15 @@ import os
 import hashlib
 import re
 import sys
-#import getopt
+'''Maturity Considerations: do I need to do imports if the calling code has them already?'''
+
 
 hasher = hashlib.md5()
-
+'''Maturity Considerations: does this need to be placed within a function?'''
 
 fotoPath = sys.argv[1]
+'''Maturity Considerations: does this need to be placed within a funtion?'''
+
 
 def countFiles(fotoPath):
     totalCount = 0
@@ -82,10 +85,13 @@ def countFiles(fotoPath):
     countDict["docCount"] = docCount
     countDict["imgCount"] = imgCount
     countDict["mp4Count"] = mp4Count
-    #print(countDict)
+
+#print(countDict)
 #    for i in countDict:
 #        print(countDict[i])
     return countDict
+'''Maturity Considerations: this info should probably be included into REPORTING
+and LOGGING functions.'''
     
 def hashFiles(fotoPath):
     for root, dirs, files in os.walk(fotoPath, topdown=False):
@@ -96,6 +102,8 @@ def hashFiles(fotoPath):
             hasher.update(content)
             print(name)
             print(hasher.hexdigest())
+'''Maturity Considerations: how does this get put into the process of adding entries
+the meta data tables, etc.'''
 
 def makeDictionary(fotoPath):
     hashDictionary = dict()

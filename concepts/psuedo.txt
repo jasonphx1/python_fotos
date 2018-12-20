@@ -3,7 +3,7 @@ PROGRAM PSUEDO:
 -check directoires exist, check database exists
 -ask user if the defaults are good
 -Show counts and stats. + LOG
--set a "marker" variable to always know the last completed action + LOG
+-set a "marker" variable to always know the last completed action LOCKFILE + LOG
 -load data in a table DATABASE_OP + LOG
 -create a list of duplicates DATABASE_OPS + LOG
 -create statistics on duplicates + LOG
